@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObslugaZamowien.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace ObslugaZamowien
 {
     public partial class FormMain : Form
     {
+        OrdersContext context = new OrdersContext();
         public FormMain()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace ObslugaZamowien
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
