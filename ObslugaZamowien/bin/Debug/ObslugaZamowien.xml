@@ -21,6 +21,23 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:ObslugaZamowien.Order">
+            <summary>
+            Klasa order
+            "baza danych"
+            posiada właściwości zamówień
+            </summary>
+        </member>
+        <member name="M:ObslugaZamowien.Order.#ctor(System.String,System.String,System.String,System.Int32,System.Double)">
+            <summary>
+            Konstruktor parametryczny inicjalizujący właściwości klasy podanymi parametrami
+            </summary>
+            <param name="clientid"></param>
+            <param name="requestid"></param>
+            <param name="name"></param>
+            <param name="quantity"></param>
+            <param name="price"></param>
+        </member>
         <member name="M:ObslugaZamowien.Program.Main">
             <summary>
             The main entry point for the application.
