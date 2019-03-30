@@ -17,7 +17,7 @@ namespace ObslugaZamowien
         // Nie dłuższe niż 6 znaków
         [StringLength(6)]
         public string ClientID { get; set; }
-        public string RequestID { get; set; }
+        public long RequestID { get; set; }
         // Nie dłuższe niż 255 znaków
         [StringLength(255)]
         public string Name { get; set; }
@@ -32,7 +32,7 @@ namespace ObslugaZamowien
         /// <param name="name"></param>
         /// <param name="quantity"></param>
         /// <param name="price"></param>
-        public Order(string clientid, string requestid, string name, int quantity, double price)
+        public Order(string clientid, long requestid, string name, int quantity, double price)
         {
             ClientID = clientid;
             RequestID = requestid;
