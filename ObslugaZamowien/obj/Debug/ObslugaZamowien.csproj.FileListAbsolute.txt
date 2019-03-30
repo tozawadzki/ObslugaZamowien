@@ -73,3 +73,4 @@ C:\Users\toome\Desktop\programming\DotnetProjects\ObslugaZamowien\ObslugaZamowie
 C:\Users\toome\Desktop\programming\DotnetProjects\ObslugaZamowien\ObslugaZamowien\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\toome\Desktop\programming\DotnetProjects\ObslugaZamowien\ObslugaZamowien\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\toome\Desktop\programming\DotnetProjects\ObslugaZamowien\ObslugaZamowien\obj\Debug\ObslugaZamowien.FormMain.resources
+C:\Users\toome\Desktop\programming\DotnetProjects\ObslugaZamowien\ObslugaZamowien\bin\Debug\Newtonsoft.Json.pdb

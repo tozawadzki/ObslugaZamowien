@@ -8,28 +8,29 @@ using Xml2CSharp;
 
 namespace ObslugaZamowien.Class
 {
+    [XmlRoot(ElementName = "requests")]
     public class ObjectToRequest
     {
-        [XmlRoot(ElementName = "requests")]
-        public class RootObjectForRequest
-        {
+        
             [XmlElement(ElementName = "request")]
             public List<Request> allRequests { get; set; }
 
-            public IEnumerable<Order> Convert(out List<int> errorList)
+            public IEnumerable<Order> Convert(out List<int> errors)
             {
-                errorList = new List<int>();
+                errors = new List<int>();
                 List<Order> rows = new List<Order>();
                 Order currentOrder;
                 for (int i = 0; i < allRequests.Count; i++)
                 {
                     currentOrder = allRequests[i].toDataBaseRow();
                     if (currentOrder != null) rows.Add(currentOrder);
-                    else errorList.Add(i + 1);
+                    else errors.Add(i + 1);
                 }
-
+              
                 return rows;
             }
         }
+
+        
     }
-}
+

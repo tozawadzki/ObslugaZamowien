@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ObslugaZamowien.Class;
+using ObslugaZamowien;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,10 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xml2CSharp;
 
 namespace ObslugaZamowien.Data
 {
-    class JSONmaker
+    public class JSONmaker
     {
 
         public IEnumerable GetFile(string path)
@@ -31,7 +33,7 @@ namespace ObslugaZamowien.Data
             }
             catch (Exception e)
             {
-                MessageBox.Show("Wystąpił niespodziewny błąd");            
+                MessageBox.Show("Wystąpił niespodziewny błąd");
             }
 
             JObject jObject = JObject.Parse(builder.ToString());
@@ -40,6 +42,7 @@ namespace ObslugaZamowien.Data
             var returnedValue = objects.Convert(out errors);
             MessageBox.Show("Plik został wczytany");
             return returnedValue;
-        
+
+        }
     }
 }

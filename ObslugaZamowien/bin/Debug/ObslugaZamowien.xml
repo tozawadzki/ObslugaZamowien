@@ -4,6 +4,21 @@
         <name>ObslugaZamowien</name>
     </assembly>
     <members>
+        <member name="M:ObslugaZamowien.FormMain.listBoxDrop_DragEnter(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            https://support.microsoft.com/en-us/help/307966/how-to-provide-file-drag-and-drop-functionality-in-a-visual-c-applicat
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ObslugaZamowien.FormMain.listBoxDrop_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Funkcja drag and drop
+            Zainspirowana tą napisaną na stronie https://support.microsoft.com/en-us/help/307966/how-to-provide-file-drag-and-drop-functionality-in-a-visual-c-applicat
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:ObslugaZamowien.FormMain.components">
             <summary>
             Required designer variable.
@@ -28,7 +43,7 @@
             posiada właściwości zamówień
             </summary>
         </member>
-        <member name="M:ObslugaZamowien.Order.#ctor(System.String,System.String,System.String,System.Int32,System.Double)">
+        <member name="M:ObslugaZamowien.Order.#ctor(System.String,System.Int64,System.String,System.Int32,System.Double)">
             <summary>
             Konstruktor parametryczny inicjalizujący właściwości klasy podanymi parametrami
             </summary>
