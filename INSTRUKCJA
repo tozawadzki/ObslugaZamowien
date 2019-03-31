@@ -1,0 +1,9 @@
+Projekt został napisany w Windows Forms
+Po uruchomieniu programu wyświetla nam się okno z ListBoxem oraz przyciskami
+Aby załadować baze danych, należy przeciągnąć plik na żółty listBox (Zaimplementowana została funkcjonalność drag&drop)
+Niestety ze względu na zbyt małą ilość czasu poświęconego na przygotowanie i realizację programu nie udało mi się go porządnie dokończyć
+Nie udało mi sie znaleźć źródła błędu, w którym lista allOrders przy konwertowaniu byla nullem (odwołanie do obiektu nie zostało ustawione na wystąpienie obiektu) (prawdopodobnie źle ją tworzyłem)
+Mimo to napisalem kilka funkcjonalnosci z tych zadanych aby pokazać, że miałem pomysł jak dalej zrealizować program
+Myślę, że gdybym się trochę wcześniej dowiedział i zapisał na BootCamp, to poradziłbym sobie z tym zadaniem
+Będę bardzo wdzięczny za czas poświęcony na analize mojego programu i za szansę wzięcia udziału w BootCampie
+Pozdrawiam serdecznie
