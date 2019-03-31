@@ -14,7 +14,7 @@ using Xml2CSharp;
 
 namespace ObslugaZamowien.Data
 {
-    public class JSONmaker
+    public class JSONmaker : ILoader
     {
 
         public IEnumerable GetFile(string path)

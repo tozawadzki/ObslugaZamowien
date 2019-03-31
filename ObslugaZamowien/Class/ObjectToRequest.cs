@@ -11,7 +11,6 @@ namespace ObslugaZamowien.Class
     [XmlRoot(ElementName = "requests")]
     public class ObjectToRequest
     {
-        
             [XmlElement(ElementName = "request")]
             public List<Request> allRequests { get; set; }
 
@@ -22,9 +21,11 @@ namespace ObslugaZamowien.Class
                 Order currentOrder;
                 for (int i = 0; i < allRequests.Count; i++)
                 {
-                    currentOrder = allRequests[i].toDataBaseRow();
-                    if (currentOrder != null) rows.Add(currentOrder);
-                    else errors.Add(i + 1);
+                    currentOrder = allRequests[i].toOrder();
+                    if (currentOrder != null)
+                    rows.Add(currentOrder);
+                    else
+                    errors.Add(i + 1);
                 }
               
                 return rows;

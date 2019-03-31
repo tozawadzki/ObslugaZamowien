@@ -1,4 +1,5 @@
-﻿using ObslugaZamowien.Data;
+﻿using ObslugaZamowien.Class;
+using ObslugaZamowien.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,7 @@ namespace ObslugaZamowien
         private void listBoxDrop_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
         {
             string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            JSONmaker loader = new JSONmaker();
+            ILoader loader = new JSONmaker();
             foreach (var file in s)
             {
                 if (!file.EndsWith(".json"))
@@ -63,6 +64,7 @@ namespace ObslugaZamowien
                     {
                         return (IEnumerable<Order>)loader.GetFile(file);
                     });
+
                 foreach (var row in loading.Result)
                 {
                     orders.Add(row);
