@@ -159,10 +159,10 @@
     <Compile Include="Class\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\ILoader.cs" />
     <Compile Include="Class\ObjectToRequest.cs" />
     <Compile Include="Class\Order.cs" />
     <Compile Include="Class\Program.cs" />
+    <Compile Include="Class\Raports.cs" />
     <Compile Include="Class\Request.cs" />
     <Compile Include="Data\JSONmaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

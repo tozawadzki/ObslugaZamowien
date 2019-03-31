@@ -19,6 +19,37 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:ObslugaZamowien.FormMain.buttonAmount_Click(System.Object,System.EventArgs)">
+            <summary>
+            Przycisk wyświetlający ilość wszystkich zamówień
+            Wszystkie funkcjonalności przycisków zaprezentowane poniżej są niezgodne z zasadą YAGNI
+            Lepszym rozwiązaniem byłoby zrobienie jednego guzika ze switch/case
+            Niestety nie zdążę tego już przerobić
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ObslugaZamowien.FormMain.buttonSummedCost_Click(System.Object,System.EventArgs)">
+            <summary>
+            Przycisk wyświetlający łączną kwotę zamówień
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ObslugaZamowien.FormMain.buttonAverage_Click(System.Object,System.EventArgs)">
+            <summary>
+            Przycisk wyświetlający średnią kwotę zamówienia
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ObslugaZamowien.FormMain.buttonInterval_Click(System.Object,System.EventArgs)">
+            <summary>
+            Przycisk wyświetlający zamówienia w podanym przedziale cenowym
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:ObslugaZamowien.FormMain.components">
             <summary>
             Required designer variable.
@@ -57,6 +88,21 @@
             <summary>
             The main entry point for the application.
             </summary>
+        </member>
+        <member name="T:ObslugaZamowien.Data.JSONmaker">
+            <summary>
+            Publiczna klasa JSONMaker
+            Pozwala nam parsować przekazany plik z rozszerzeniem .json
+            Używamy w niej funkcjonalności z rozszerzenie Newtonsoft
+            </summary>
+        </member>
+        <member name="M:ObslugaZamowien.Data.JSONmaker.GetFile(System.String)">
+            <summary>
+            Funkcja pobierająca plik json
+            Używamy StreamReadera w celu zczytania tekstu z pliku
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
         </member>
         <member name="T:ObslugaZamowien.Properties.Resources">
             <summary>

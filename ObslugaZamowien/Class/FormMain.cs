@@ -14,7 +14,10 @@ namespace ObslugaZamowien
 {
     public partial class FormMain : Form
     {
-        List<Order> orders;
+        // Lista zamówień służąca nam jako połączenie z "bazą danych"
+        private List<Order> ordersContext = new List<Order>();
+        // Objekt, na którym będziemy wywoływać metody klasy Raports zawierającą funkcjonalności zadane w poleceniu
+        private Raports raportObj;
         public FormMain()
         {
             InitializeComponent();
@@ -22,11 +25,6 @@ namespace ObslugaZamowien
            System.Windows.Forms.DragEventHandler(this.listBoxDrop_DragDrop);
             this.listBoxDrop.DragEnter += new
                        System.Windows.Forms.DragEventHandler(this.listBoxDrop_DragEnter);
-
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -51,7 +49,7 @@ namespace ObslugaZamowien
         private void listBoxDrop_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
         {
             string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            ILoader loader = new JSONmaker();
+            JSONmaker loader = new JSONmaker();
             foreach (var file in s)
             {
                 if (!file.EndsWith(".json"))
@@ -67,10 +65,107 @@ namespace ObslugaZamowien
 
                 foreach (var row in loading.Result)
                 {
-                    orders.Add(row);
+                    ordersContext.Add(row);
                     MessageBox.Show("Załadowano bazę!");
                 }
             }
+        }
+        /// <summary>
+        /// Przycisk wyświetlający ilość wszystkich zamówień
+        /// Wszystkie funkcjonalności przycisków zaprezentowane poniżej są niezgodne z zasadą YAGNI
+        /// Lepszym rozwiązaniem byłoby zrobienie jednego guzika ze switch/case
+        /// Niestety nie zdążę tego już przerobić
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAmount_Click(object sender, EventArgs e)
+        {
+            if (ordersContext.Count > 0)
+            {
+                var result = Task<int>.Run(() =>
+                {
+                    // Wywołujemy odpowiednią metodę, analogicznie w reszcie przypadków
+                    return raportObj.OrdersAmount();
+                });
+
+                MessageBox.Show("Ilość zamówień: ", result.Result.ToString());
+            }
+            else
+                MessageBox.Show("Nie załadowano bazy danych");
+        }
+        /// <summary>
+        /// Przycisk wyświetlający łączną kwotę zamówień
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSummedCost_Click(object sender, EventArgs e)
+        {
+            if (ordersContext.Count > 0)
+            {
+                var result = Task<int>.Run(() =>
+                {
+                    return raportObj.SummedCostOfOrders();
+                });
+
+                MessageBox.Show("Łączny koszt zamówień: ", result.Result.ToString());
+            }
+            else
+                MessageBox.Show("Nie załadowano bazy danych");
+        }
+        /// <summary>
+        /// Przycisk wyświetlający średnią kwotę zamówienia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAverage_Click(object sender, EventArgs e)
+        {
+            if (ordersContext.Count > 0)
+            {
+                var result = Task<int>.Run(() =>
+                {
+                    return raportObj.AverageCostOfOrder();
+                });
+
+                MessageBox.Show("Średni koszt zamówienia: ", result.Result.ToString());
+            }
+            else
+                MessageBox.Show("Nie załadowano bazy danych");
+        }
+        /// <summary>
+        /// Przycisk wyświetlający zamówienia w podanym przedziale cenowym
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInterval_Click(object sender, EventArgs e)
+        {
+            // Dolny i górny przedział
+            double uLimit, dLimit;
+            // Jeśli textboxy są uzupełnione
+            if (textBoxOd.Text != "" && textBoxDo.Text != "")
+            {
+                // Parsujemy string na double
+                uLimit = double.Parse(textBoxOd.Text);
+                dLimit = double.Parse(textBoxDo.Text);
+                if (ordersContext.Count > 0)
+                {
+                    var result = Task<int>.Run(() =>
+                    {
+                        return raportObj.IntervalCost(uLimit, dLimit);
+                    });
+                    MessageBox.Show("Średni koszt zamówienia: ", result.Result.ToString());
+                }
+                else
+                    MessageBox.Show("Nie załadowano bazy danych");
+            }
+            else
+                MessageBox.Show("Wpisz granice przedziałów!");
+            
+        }
+        
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

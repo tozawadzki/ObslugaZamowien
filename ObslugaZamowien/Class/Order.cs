@@ -32,6 +32,7 @@ namespace ObslugaZamowien
         /// <param name="name"></param>
         /// <param name="quantity"></param>
         /// <param name="price"></param>
+    
         public Order(string clientid, long requestid, string name, int quantity, double price)
         {
             ClientID = clientid;
@@ -39,6 +40,12 @@ namespace ObslugaZamowien
             Name = name;
             Quantity = quantity;
             Price = price;
+        }
+
+        public Order(string clientid, long requestid)
+        {
+            ClientID = clientid;
+            RequestID = requestid;
         }
     }
 }

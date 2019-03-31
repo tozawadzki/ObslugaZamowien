@@ -14,19 +14,31 @@ using Xml2CSharp;
 
 namespace ObslugaZamowien.Data
 {
-    public class JSONmaker : ILoader
+    /// <summary>
+    /// Publiczna klasa JSONMaker
+    /// Pozwala nam parsować przekazany plik z rozszerzeniem .json
+    /// Używamy w niej funkcjonalności z rozszerzenie Newtonsoft
+    /// </summary>
+    public class JSONmaker  
     {
-
+        /// <summary>
+        /// Funkcja pobierająca plik json
+        /// Używamy StreamReadera w celu zczytania tekstu z pliku
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public IEnumerable GetFile(string path)
         {
             StringBuilder builder = new StringBuilder();
 
             try
             {
+                // Tworzymy obiekt pomocniczy klasy StreamReader
+                // using zamyka StreamReadera
                 using (StreamReader sr = new StreamReader(path))
                 {
                     string line;
-
+                    // Zczytuje i wyświetla linijki z tekstu aż do końca pliku
                     while ((line = sr.ReadLine()) != null)
                         builder.Append(line);
                 }
@@ -35,7 +47,7 @@ namespace ObslugaZamowien.Data
             {
                 MessageBox.Show("Wystąpił niespodziewny błąd");
             }
-
+      
             JObject jObject = JObject.Parse(builder.ToString());
             var objects = JsonConvert.DeserializeObject<ObjectToRequest>(builder.ToString());
             List<int> errors;
