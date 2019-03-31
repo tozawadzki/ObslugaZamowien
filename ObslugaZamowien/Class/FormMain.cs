@@ -132,7 +132,28 @@ namespace ObslugaZamowien
                 MessageBox.Show("Nie załadowano bazy danych");
         }
         /// <summary>
+        /// Funkcjonalnosc "Lista wszystkich zamówień"
+        /// Niestety nie zdążyłem dodać nowego okna, w którym byłaby wyświetlana lista zamówień
+        /// Miałaby ona działać na zasadzie DataGridView, wyświetlać zamówienie z opisanymi polami
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAllOrders_Click(object sender, EventArgs e)
+        {
+            if (ordersContext.Count > 0)
+            {
+                var result = Task<int>.Run(() =>
+                {
+                    return raportObj.AllOrders();
+                });
+            }
+            else
+                MessageBox.Show("Nie załadowano bazy danych");
+        }
+
+        /// <summary>
         /// Przycisk wyświetlający zamówienia w podanym przedziale cenowym
+        /// Tak samo jak w przypadku wyświetlania wszystkich zamówień, nie zostało dodane specjalne okno
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -152,7 +173,7 @@ namespace ObslugaZamowien
                     {
                         return raportObj.IntervalCost(uLimit, dLimit);
                     });
-                    MessageBox.Show("Średni koszt zamówienia: ", result.Result.ToString());
+                
                 }
                 else
                     MessageBox.Show("Nie załadowano bazy danych");
@@ -167,6 +188,7 @@ namespace ObslugaZamowien
         {
             this.Close();
         }
+        
     }
 }
         

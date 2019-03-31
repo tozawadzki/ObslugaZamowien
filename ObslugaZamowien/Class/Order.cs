@@ -42,6 +42,13 @@ namespace ObslugaZamowien
             Price = price;
         }
 
+        /// <summary>
+        /// Konsturktor parametryczny inicjalizujący dwie z pięciu właściwości klasy
+        /// Został stworzony dla metody AllOrders w klasie Raports
+        /// Wysyłamy w niej obiekt typu Order posiadający zainicjalizowane tylko ClientID i RequestID
+        /// </summary>
+        /// <param name="clientid"></param>
+        /// <param name="requestid"></param>
         public Order(string clientid, long requestid)
         {
             ClientID = clientid;

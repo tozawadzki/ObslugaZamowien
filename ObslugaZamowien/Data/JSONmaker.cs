@@ -38,7 +38,7 @@ namespace ObslugaZamowien.Data
                 using (StreamReader sr = new StreamReader(path))
                 {
                     string line;
-                    // Zczytuje i wyświetla linijki z tekstu aż do końca pliku
+                    // Sczytuje i wyświetla linijki z tekstu aż do końca pliku
                     while ((line = sr.ReadLine()) != null)
                         builder.Append(line);
                 }
@@ -47,10 +47,12 @@ namespace ObslugaZamowien.Data
             {
                 MessageBox.Show("Wystąpił niespodziewny błąd");
             }
-      
+            // Parsujemy dane pobrane podczas StreamReadowania
             JObject jObject = JObject.Parse(builder.ToString());
+            // JSON na obiekt
             var objects = JsonConvert.DeserializeObject<ObjectToRequest>(builder.ToString());
             List<int> errors;
+            // Konwertujemy, używając metody z klasy ObjectToRequest 
             var returnedValue = objects.Convert(out errors);
             MessageBox.Show("Plik został wczytany");
             return returnedValue;

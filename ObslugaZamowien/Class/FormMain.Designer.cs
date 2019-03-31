@@ -37,6 +37,7 @@
             this.textBoxOd = new System.Windows.Forms.TextBox();
             this.textBoxDo = new System.Windows.Forms.TextBox();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonAllOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxDrop
@@ -47,7 +48,7 @@
             this.listBoxDrop.ItemHeight = 16;
             this.listBoxDrop.Location = new System.Drawing.Point(12, 98);
             this.listBoxDrop.Name = "listBoxDrop";
-            this.listBoxDrop.Size = new System.Drawing.Size(279, 212);
+            this.listBoxDrop.Size = new System.Drawing.Size(431, 212);
             this.listBoxDrop.TabIndex = 0;
             // 
             // buttonAmount
@@ -87,7 +88,7 @@
             // buttonInterval
             // 
             this.buttonInterval.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInterval.Location = new System.Drawing.Point(345, 12);
+            this.buttonInterval.Location = new System.Drawing.Point(456, 12);
             this.buttonInterval.Name = "buttonInterval";
             this.buttonInterval.Size = new System.Drawing.Size(105, 68);
             this.buttonInterval.TabIndex = 4;
@@ -99,7 +100,7 @@
             // 
             this.labelInterval.AutoSize = true;
             this.labelInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelInterval.Location = new System.Drawing.Point(351, 88);
+            this.labelInterval.Location = new System.Drawing.Point(452, 88);
             this.labelInterval.Name = "labelInterval";
             this.labelInterval.Size = new System.Drawing.Size(94, 20);
             this.labelInterval.TabIndex = 6;
@@ -107,14 +108,14 @@
             // 
             // textBoxOd
             // 
-            this.textBoxOd.Location = new System.Drawing.Point(345, 111);
+            this.textBoxOd.Location = new System.Drawing.Point(449, 111);
             this.textBoxOd.Name = "textBoxOd";
             this.textBoxOd.Size = new System.Drawing.Size(47, 22);
             this.textBoxOd.TabIndex = 7;
             // 
             // textBoxDo
             // 
-            this.textBoxDo.Location = new System.Drawing.Point(398, 111);
+            this.textBoxDo.Location = new System.Drawing.Point(507, 111);
             this.textBoxDo.Name = "textBoxDo";
             this.textBoxDo.Size = new System.Drawing.Size(47, 22);
             this.textBoxDo.TabIndex = 8;
@@ -122,7 +123,7 @@
             // buttonExit
             // 
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Location = new System.Drawing.Point(347, 251);
+            this.buttonExit.Location = new System.Drawing.Point(449, 251);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(105, 59);
             this.buttonExit.TabIndex = 9;
@@ -130,11 +131,23 @@
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // buttonAllOrders
+            // 
+            this.buttonAllOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAllOrders.Location = new System.Drawing.Point(345, 12);
+            this.buttonAllOrders.Name = "buttonAllOrders";
+            this.buttonAllOrders.Size = new System.Drawing.Size(105, 68);
+            this.buttonAllOrders.TabIndex = 10;
+            this.buttonAllOrders.Text = "Wszystkie raporty";
+            this.buttonAllOrders.UseVisualStyleBackColor = true;
+            this.buttonAllOrders.Click += new System.EventHandler(this.buttonAllOrders_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 327);
+            this.ClientSize = new System.Drawing.Size(566, 327);
+            this.Controls.Add(this.buttonAllOrders);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.textBoxDo);
             this.Controls.Add(this.textBoxOd);
@@ -162,6 +175,7 @@
         private System.Windows.Forms.TextBox textBoxOd;
         private System.Windows.Forms.TextBox textBoxDo;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonAllOrders;
     }
 }
 

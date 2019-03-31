@@ -10,6 +10,9 @@ using System.Xml.Serialization;
 /// </summary>
 namespace Xml2CSharp
 {
+    /// <summary>
+    /// Klasa wygenerowana za pomocą strony http://json2csharp.com/
+    /// </summary>
     [XmlRoot(ElementName = "request")]
     public class Request
     {
@@ -31,7 +34,7 @@ namespace Xml2CSharp
             if (!double.TryParse(Price, out double price) ||
                 !long.TryParse(RequestId, out long requestId) ||
                 !int.TryParse(Quantity, out int quantity)) return null;
-
+            // Zapobieganie niechcianym formatom danym - wytyczne przedstawione w poleceniu
             if (ClientId == null || RequestId == null || Name == null || Quantity == null || Price == null)
                 return null;
             if (Name.Length > 255)

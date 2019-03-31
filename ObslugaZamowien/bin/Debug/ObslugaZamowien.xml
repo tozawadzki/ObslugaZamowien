@@ -43,9 +43,19 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:ObslugaZamowien.FormMain.buttonAllOrders_Click(System.Object,System.EventArgs)">
+            <summary>
+            Funkcjonalnosc "Lista wszystkich zamówień"
+            Niestety nie zdążyłem dodać nowego okna, w którym byłaby wyświetlana lista zamówień
+            Miałaby ona działać na zasadzie DataGridView, wyświetlać zamówienie z opisanymi polami
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:ObslugaZamowien.FormMain.buttonInterval_Click(System.Object,System.EventArgs)">
             <summary>
             Przycisk wyświetlający zamówienia w podanym przedziale cenowym
+            Tak samo jak w przypadku wyświetlania wszystkich zamówień, nie zostało dodane specjalne okno
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -67,6 +77,69 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:ObslugaZamowien.Class.ObjectToRequest">
+            <summary>
+            Publiczna klasa ObjectToRequest
+            </summary>
+        </member>
+        <member name="M:ObslugaZamowien.Class.ObjectToRequest.Convert(System.Collections.Generic.List{System.Int32}@)">
+            <summary>
+            Metoda Convert
+            Zamienia dane pobrane z pliku i wczytane do bazy na "gotowe" wiersze z odpowiednimi polami
+            Służy do stworzenia obiektu (wywołania konstruktora parametrycznego, ma to miejsce w klasie Requests przy wywołaniu metody toOrder()
+            Zwraca wiersze z dodanymi zamówieniami
+            </summary>
+            <param name="errors"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ObslugaZamowien.Class.Raports">
+            <summary>
+            Klasa publiczna raports
+            Posiada metody, które mają za zadanie tworzyć odpowiednie raporty
+            Posiada funkcjonalności podane w zadaniu
+            Ilość zamówień
+            Łączna kwota zamówień
+            Lista wszystkich zamówień
+            Średnia wartość zamówienia
+            Zamówienia w podanym przedziale cenowym
+            </summary>
+        </member>
+        <member name="M:ObslugaZamowien.Class.Raports.AllOrders">
+            <summary>
+            Metoda publiczna typu IEnumerable
+            zwraca listę wszystkich zamówień
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ObslugaZamowien.Class.Raports.OrdersAmount">
+            <summary>
+            Metoda publiczna typu double
+            Zwraca ilość wszystkich zamówień
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ObslugaZamowien.Class.Raports.SummedCostOfOrders">
+            <summary>
+            Metoda publiczna typu double
+            Zwraca łączną kwotę wszystkich zamówień
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ObslugaZamowien.Class.Raports.AverageCostOfOrder">
+            <summary>
+            Metoda publiczna typu double
+            Zwraca średni koszt zamówienia
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ObslugaZamowien.Class.Raports.IntervalCost(System.Double,System.Double)">
+            <summary>
+            Metoda publiczna typu IEnumerable
+            Zwraca listę zamówień w danym przedziale cenowym
+            Jako parametry przyjmuje dolny i górny limit cenowy
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ObslugaZamowien.Order">
             <summary>
             Klasa order
@@ -83,6 +156,15 @@
             <param name="name"></param>
             <param name="quantity"></param>
             <param name="price"></param>
+        </member>
+        <member name="M:ObslugaZamowien.Order.#ctor(System.String,System.Int64)">
+            <summary>
+            Konsturktor parametryczny inicjalizujący dwie z pięciu właściwości klasy
+            Został stworzony dla metody AllOrders w klasie Raports
+            Wysyłamy w niej obiekt typu Order posiadający zainicjalizowane tylko ClientID i RequestID
+            </summary>
+            <param name="clientid"></param>
+            <param name="requestid"></param>
         </member>
         <member name="M:ObslugaZamowien.Program.Main">
             <summary>
@@ -118,6 +200,11 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Xml2CSharp.Request">
+            <summary>
+            Klasa wygenerowana za pomocą strony http://json2csharp.com/
             </summary>
         </member>
     </members>
